@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Register</title>
+    <title>Register - Sigma Academy</title>
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
 </head>
@@ -19,9 +19,8 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="{{ asset('assets/logo.png') }}" class="img-fluid mt-1" style="width: 200px">
-                        <h1
-                            class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                            Register Account
+                        <h1 class="lead mt-3" style="font-size: 28px">
+                            Register Page
                         </h1>
                     </div>
 
