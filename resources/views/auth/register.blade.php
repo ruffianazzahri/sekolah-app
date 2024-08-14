@@ -9,6 +9,8 @@
     <meta name="author" content="">
     <title>Register - Sigma Academy</title>
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/solid.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
 </head>
 
@@ -69,7 +71,9 @@
                             </div>
                         </div>
                         <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-block btn-success">Create
+                            <button type="submit" class="btn btn-block btn-success"><i
+                                    class="fa-solid fa-right-to-bracket"></i>
+                                Create
                                 an account</button>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Already have an account? <a href=" {{ route('login') }}">Login here</a>
@@ -88,3 +92,5 @@
 </html>
 
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<s src="{{ asset('fontawesome/js/fontawesome.js') }}"></s cript>
+<script src="{{ asset('fontawesome/js/solid.js') }}"></script>
