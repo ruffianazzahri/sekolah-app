@@ -26,5 +26,11 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+
+
+//Normal Users Routes List
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+    //Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
+});

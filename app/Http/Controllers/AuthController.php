@@ -11,6 +11,11 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     //
     public function register(){
         return view('auth/register');
@@ -53,7 +58,12 @@ class AuthController extends Controller
         }
 
         $request->session()->regenerate();
-        return redirect()->route('home');
+        if (auth()->user()->type == 'admin') {
+            return redirect()->route('admin/home');
+        } else {
+            return redirect()->route('home');
+        }
+
         // if (auth()->user()->type == 'admin') {
         //     return redirect()->route('admin/home');
         // } else {
