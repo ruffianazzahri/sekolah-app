@@ -64,8 +64,11 @@
                         <div class="text-center mt-3">
                             <button type="submit" class="btn btn-block btn-success"><i
                                     class="fa-solid fa-right-to-bracket"></i> Login</button>
-                            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            <p>
                                 Don't have an account? <a href="{{ route('register') }}">Register a new account here</a>
+                            </p>
+                            <p>
+                                Back to <a href="{{ route('home') }}">Homepage</a>
                             </p>
                         </div>
 

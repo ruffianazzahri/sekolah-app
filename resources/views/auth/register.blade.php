@@ -75,8 +75,11 @@
                                     class="fa-solid fa-right-to-bracket"></i>
                                 Create
                                 an account</button>
-                            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            <p>
                                 Already have an account? <a href=" {{ route('login') }}">Login here</a>
+                            </p>
+                            <p>
+                                Back to <a href="{{ route('home') }}">Homepage</a>
                             </p>
                         </div>
 
