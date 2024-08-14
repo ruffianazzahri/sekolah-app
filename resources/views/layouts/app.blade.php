@@ -29,13 +29,18 @@
 
                 @if (Route::has('login'))
                 @auth
+
+
                 <li class="mt-3 mb-3">
 
                     <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
                         src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg" alt="Profile Picture">
-                    <span>Profile</span>
+                    <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
 
                 </li>
+
+
+
 
 
                 <li><a href="{{ url('/admin/home') }}" class="dropdown-item" role="menuitem" tabindex="-1"

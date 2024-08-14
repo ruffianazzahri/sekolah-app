@@ -56,12 +56,12 @@ class AuthController extends Controller
                 'email' => trans('auth.failed')
             ]);
         }
+        $userName = Auth::user()->name;
 
-        $request->session()->regenerate();
-        if (auth()->user()->type == 'admin') {
-            return redirect()->route('admin/home');
+        if (auth()->user()->type === 'admin') {
+            return redirect()->route('admin/home')->with('userName', $userName);
         } else {
-            return redirect()->route('home');
+            return redirect()->route('home')->with('userName', $userName);
         }
 
         // if (auth()->user()->type == 'admin') {

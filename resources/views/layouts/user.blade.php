@@ -38,13 +38,20 @@
                     <a class="nav-link " href="{{route('aboutus')}}">About Us</a>
 
                     <li class="nav-item dropdown">
+
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
                                 src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg"
                                 alt="Profile Picture">
-                            <span>Profile</span>
+
+                            <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
                         </a>
+
+
+
+
+
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="{{ url('/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                                     id="user-menu-item-0">Your Profile</a></li>
@@ -88,5 +95,5 @@
 
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <s src="{{ asset('fontawesome/js/fontawesome.js') }}"></s cript>
-<script src="{{ asset('fontawesome/js/solid.js') }}"></script>
+< src="{{ asset('fontawesome/js/solid.js') }}"></ script>
 <script src="{{ asset('jquery/jquery.js') }}"></script>
