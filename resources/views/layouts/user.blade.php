@@ -34,13 +34,16 @@
                     @if (Route::has('login'))
                     @auth
                     <!-- Profile dropdown -->
+                    <a class="nav-link " href="{{route('home')}}">Home</a>
+                    <a class="nav-link " href="{{route('aboutus')}}">About Us</a>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                 alt="Profile Picture">
-                            <span>Dropdown</span>
+                            <span>Profile</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="{{ url('/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
@@ -55,6 +58,8 @@
 
 
                     @else
+                    <a class="nav-link " href="{{route('home')}}">Home</a>
+                    <a class="nav-link " href="{{route('aboutus')}}">About Us</a>
                     <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('login')}}">Login</a>
 
                     @if (Route::has('register'))

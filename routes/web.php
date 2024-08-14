@@ -27,3 +27,4 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
