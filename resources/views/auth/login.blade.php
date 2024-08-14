@@ -21,19 +21,24 @@
                         <img src="{{ asset('assets/logo.png') }}" class="img-fluid mt-1" style="width: 200px">
                         <h1
                             class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                            Register Account
+                            Login Page
                         </h1>
                     </div>
 
-                    <form action="{{ route('register.save') }}" method="POST" class="mt-5">
+                    <form action="{{ route('login.action') }}" method="POST" class="mt-5">
                         @csrf
-                        <div class="mt-3">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
-                            @error('name')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
+                        @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>ERROR!</strong>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li><span class="block sm:inline">{{ $error }}</span></li>
+                                @endforeach
+                            </ul>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
                         </div>
+                        @endif
                         <div class="mt-3">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control"
@@ -51,29 +56,14 @@
                             @enderror
                         </div>
                         <div class="mt-3">
-                            <label for="confirm-password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
-                                password</label>
-                            <input type="password" name="password_confirmation" id="password_confirmation"
-                                placeholder="••••••••" class="form-control" required>
-                            @error('password_confirmation')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
+                            <input name="remember" id="remember" aria-describedby="remember" type="checkbox">
+                            <label for="remember">Remember me</label>
                         </div>
-                        <div class="flex items-start mt-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    I accept the <a href="https://generator.lorem-ipsum.info/terms-and-conditions"
-                                        target="_blank">Agreement</a>
-                                </label>
-                            </div>
-                        </div>
+
                         <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-block btn-success">Create
-                                an account</button>
+                            <button type="submit" class="btn btn-block btn-success">Login</button>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account? <a href=" {{ route('login') }}">Login here</a>
+                                Don't have an account? <a href="{{ route('register') }}">Register a new account here</a>
                             </p>
                         </div>
 
@@ -87,5 +77,8 @@
 </body>
 
 </html>
+
+
+
 
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
