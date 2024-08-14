@@ -41,7 +41,7 @@
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg"
                                 alt="Profile Picture">
                             <span>Profile</span>
                         </a>
@@ -89,3 +89,4 @@
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <s src="{{ asset('fontawesome/js/fontawesome.js') }}"></s cript>
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
+<script src="{{ asset('jquery/jquery.js') }}"></script>
