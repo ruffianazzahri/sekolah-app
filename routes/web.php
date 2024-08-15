@@ -55,8 +55,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/students', [StudentController::class, 'index'])->name('admin/students');
     Route::get('/admin/students/create', [StudentController::class, 'create'])->name('admin/students/create');
      Route::post('/admin/students/store', [StudentController::class, 'store'])->name('admin/students/store');
-    // Route::get('/admin/students/show/{id}', [StudentController::class, 'show'])->name('admin/students/show');
-    // Route::get('/admin/students/edit/{id}', [StudentController::class, 'edit'])->name('admin/students/edit');
-    // Route::put('/admin/students/edit/{id}', [StudentController::class, 'update'])->name('admin/students/update');
-    // Route::delete('/admin/students/destroy/{id}', [StudentController::class, 'destroy'])->name('admin/students/destroy');
+     Route::get('/admin/students/show/{id}', [StudentController::class, 'show'])->name('admin/students/show');
+     Route::get('/admin/students/edit/{id}', [StudentController::class, 'edit'])->name('admin/students/edit');
+     Route::put('/admin/students/edit/{id}', [StudentController::class, 'update'])->name('admin/students/update');
+     Route::delete('/admin/students/destroy/{id}', [StudentController::class, 'destroy'])->name('admin/students/destroy');
 });

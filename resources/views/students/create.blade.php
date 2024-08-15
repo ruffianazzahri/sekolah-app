@@ -15,8 +15,28 @@
 
         <div class="mb-3">
             <label for="class" class="form-label">Kelas</label>
-            <input id="class" name="class" type="text" class="form-control" placeholder="Masukkan kelas siswa">
+            <select id="class" name="class" class="form-select">
+                <option value="X MIPA 1">X MIPA 1</option>
+                <option value="X MIPA 2">X MIPA 2</option>
+                <option value="X MIPA 3">X MIPA 3</option>
+                <option value="X MIPS 1">X MIPS 1</option>
+                <option value="X MIPS 2">X MIPS 2</option>
+                <option value="X MIPS 3">X MIPS 3</option>
+                <option value="XI MIPA 1">XI MIPA 1</option>
+                <option value="XI MIPA 2">XI MIPA 2</option>
+                <option value="XI MIPA 3">XI MIPA 3</option>
+                <option value="XI MIPS 1">XI MIPS 1</option>
+                <option value="XI MIPS 2">XI MIPS 2</option>
+                <option value="XI MIPS 3">XI MIPS 3</option>
+                <option value="XII MIPA 1">XII MIPA 1</option>
+                <option value="XII MIPA 2">XII MIPA 2</option>
+                <option value="XII MIPA 3">XII MIPA 3</option>
+                <option value="XII MIPS 1">XII MIPS 1</option>
+                <option value="XII MIPS 2">XII MIPS 2</option>
+                <option value="XII MIPS 3">XII MIPS 3</option>
+            </select>
         </div>
+
 
         <div class="mb-3">
             <label for="age" class="form-label">Usia</label>
