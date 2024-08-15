@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
-
+use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     //
@@ -19,12 +19,34 @@ class StudentController extends Controller
         return view('students.create');
     }
 
-
     public function store(Request $request)
     {
-        Student::create($request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'class' => 'required|string|max:255',
+            'age' => 'required|integer',
+            'description' => 'nullable|string',
+            'status' => 'required|string|in:pending,accepted,rejected',
+            'reason' => 'nullable|string',
+        ]);
 
-        return redirect()->route('admin/students')->with('success', 'Siswa calon anggota ekskul berhasil ditambahkan!');
+        // Ambil ID dan email pengguna yang saat ini login
+        $userId = Auth::id();
+        $userEmail = Auth::user()->email;
+
+        $student = new Student();
+        $student->name = $validatedData['name'];
+        $student->class = $validatedData['class'];
+        $student->age = $validatedData['age'];
+        $student->description = $validatedData['description'];
+        $student->status = $validatedData['status'];
+        $student->reason = $validatedData['reason'];
+        $student->inputted_id = $userId; // Set ID pengguna yang saat ini login
+        $student->inputted_email = $userEmail; // Set email pengguna yang saat ini login
+        $student->changed_by_admin = Auth::user()->name; // Set nama admin yang mengubah data
+        $student->save();
+
+        return redirect()->route('admin/students')->with('success', 'Siswa berhasil ditambahkan');
     }
 
     public function show(string $id)

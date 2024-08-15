@@ -1,4 +1,3 @@
-// resources/views/students/index.blade.php
 @extends('layouts.app')
 
 @section('title', 'Daftar Siswa')
@@ -25,8 +24,9 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Kelas</th>
                 <th scope="col">Usia</th>
-                <th scope="col">Deskripsi</th>
-                <th scope="col">Status</th>
+                <th scope="col">Status Pertimbangan</th>
+                <th scope="col">Deskripsi Alasan Pertimbangan</th>
+
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -38,7 +38,6 @@
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->class }}</td>
                 <td>{{ $student->age }}</td>
-                <td>{{ $student->description }}</td>
                 <td>
                     @if($student->status == 'accepted')
                     <span class="badge bg-success">
@@ -54,6 +53,8 @@
                     </span>
                     @endif
                 </td>
+                <td>{{ $student->description }}</td>
+
                 <td class="w-25">
                     <a href="{{ route('admin/students/show', $student->id) }}" class="text-primary">Detail</a>
                     <a href="{{ route('admin/students/edit', $student->id) }}" class="text-success">Edit</a>

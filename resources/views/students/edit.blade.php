@@ -36,13 +36,7 @@
 
 
         <div class="mb-3">
-            <label for="description" class="form-label">Deskripsi</label>
-            <textarea name="description" id="description" rows="3" class="form-control"
-                placeholder="Masukkan deskripsi siswa">{{ $students->description }}</textarea>
-        </div>
-
-        <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
+            <label for="status" class="form-label">Status pertimbangan</label>
             <select id="status" name="status" class="form-select">
                 <option value="pending" {{ $students->status == 'pending' ? 'selected' : '' }}>Sedang Dipertimbangkan
                 </option>
@@ -50,6 +44,13 @@
                 <option value="rejected" {{ $students->status == 'rejected' ? 'selected' : '' }}>Ditolak</option>
             </select>
         </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Deskripsi alasan pertimbangan</label>
+            <textarea name="description" id="description" rows="3" class="form-control"
+                placeholder="Masukkan deskripsi siswa">{{ $students->description }}</textarea>
+        </div>
+
 
         <button type="submit" class="btn btn-primary w-100">Update</button>
     </form>

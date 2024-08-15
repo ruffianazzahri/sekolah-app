@@ -16,12 +16,9 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('class');
-            $table->string('age');
+            $table->string('price');
+            $table->string('product_code');
             $table->text('description');
-
-            $table->text('status');
-
             $table->timestamps();
         });
     }

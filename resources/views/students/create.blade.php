@@ -8,11 +8,14 @@
 <div class="pb-4">
     <form action="{{ route('admin/students/store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+
+        <!-- Nama -->
         <div class="mb-3">
             <label for="name" class="form-label">Nama</label>
             <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama siswa">
         </div>
 
+        <!-- Kelas -->
         <div class="mb-3">
             <label for="class" class="form-label">Kelas</label>
             <select id="class" name="class" class="form-select">
@@ -37,27 +40,37 @@
             </select>
         </div>
 
-
+        <!-- Usia -->
         <div class="mb-3">
             <label for="age" class="form-label">Usia</label>
             <input id="age" name="age" type="number" class="form-control" placeholder="Masukkan usia siswa">
         </div>
 
+        <!-- Deskripsi -->
         <div class="mb-3">
             <label for="description" class="form-label">Deskripsi</label>
             <textarea name="description" id="description" rows="3" class="form-control"
                 placeholder="Masukkan deskripsi siswa"></textarea>
         </div>
 
-        <div class="mb-3">
+        <!-- Status -->
+        <div class="mb-3 d-none">
             <label for="status" class="form-label">Status</label>
             <select name="status" id="status" class="form-select">
-                <option value="pending">Pending</option>
+                <option value="pending" selected>Sedang Dipertimbangkan</option>
                 <option value="accepted">Diterima</option>
                 <option value="rejected">Ditolak</option>
             </select>
         </div>
 
+        <!-- Reason -->
+        <div class="mb-3">
+            <label for="reason" class="form-label">Alasan</label>
+            <input type="text" name="reason" id="reason" class="form-control"
+                placeholder="Masukkan alasan siswa mengikuti ini">
+        </div>
+
+        <!-- Submit Button -->
         <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>
 </div>

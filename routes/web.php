@@ -44,6 +44,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
+
     Route::get('/admin/home', function () {
         $userName = Auth::user()->name;
         return redirect()->route('admin.home')->with('userName', $userName);
@@ -51,6 +52,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
+    Route::put('/admin/update', [AdminController::class, 'update'])->name('admin/update');
 
     Route::get('/admin/students', [StudentController::class, 'index'])->name('admin/students');
     Route::get('/admin/students/create', [StudentController::class, 'create'])->name('admin/students/create');
@@ -59,4 +61,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
      Route::get('/admin/students/edit/{id}', [StudentController::class, 'edit'])->name('admin/students/edit');
      Route::put('/admin/students/edit/{id}', [StudentController::class, 'update'])->name('admin/students/update');
      Route::delete('/admin/students/destroy/{id}', [StudentController::class, 'destroy'])->name('admin/students/destroy');
+
+
 });
