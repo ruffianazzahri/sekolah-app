@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,11 +52,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
 
-    // Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
-    // Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
-    // Route::post('/admin/products/store', [ProductController::class, 'store'])->name('admin/products/store');
-    // Route::get('/admin/products/show/{id}', [ProductController::class, 'show'])->name('admin/products/show');
-    // Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
-    // Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
-    // Route::delete('/admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin/products/destroy');
+    Route::get('/admin/students', [StudentController::class, 'index'])->name('admin/students');
+    Route::get('/admin/students/create', [StudentController::class, 'create'])->name('admin/students/create');
+     Route::post('/admin/students/store', [StudentController::class, 'store'])->name('admin/students/store');
+    // Route::get('/admin/students/show/{id}', [StudentController::class, 'show'])->name('admin/students/show');
+    // Route::get('/admin/students/edit/{id}', [StudentController::class, 'edit'])->name('admin/students/edit');
+    // Route::put('/admin/students/edit/{id}', [StudentController::class, 'update'])->name('admin/students/update');
+    // Route::delete('/admin/students/destroy/{id}', [StudentController::class, 'destroy'])->name('admin/students/destroy');
 });

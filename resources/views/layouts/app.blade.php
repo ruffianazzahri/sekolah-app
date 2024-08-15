@@ -46,6 +46,9 @@
                 <li><a href="{{ url('/admin/home') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                         id="user-menu-item-0"><i class="fa fa-home"></i> Home</a></li>
                 <li>
+                <li><a href="{{ url('/admin/students') }}" class="dropdown-item" role="menuitem" tabindex="-1"
+                        id="user-menu-item-0"><i class="fa-solid fa-list"></i> Student Candidates</a></li>
+                <li>
                 <li><a href="{{ url('/admin/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                         id="user-menu-item-0"><i class="fa fa-user"></i> Profile Management</a></li>
                 <li>
