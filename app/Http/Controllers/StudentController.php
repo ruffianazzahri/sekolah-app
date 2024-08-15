@@ -63,15 +63,24 @@ class StudentController extends Controller
 
         return view('students.edit', compact('students'));
     }
-
     public function update(Request $request, string $id)
     {
+        $validatedData = $request->validate([
+            'status' => 'required|string|in:pending,accepted,rejected',
+            'reason' => 'nullable|string',
+        ]);
+
         $students = Student::findOrFail($id);
 
-        $students->update($request->all());
+        $students->status = $validatedData['status'];
+        $students->reason = $validatedData['reason'];
+        $students->changed_by_admin = Auth::user()->name;
+
+        $students->save();
 
         return redirect()->route('admin/students')->with('success', 'Student updated successfully');
     }
+
 
     public function destroy(string $id)
     {

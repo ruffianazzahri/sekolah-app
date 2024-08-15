@@ -3,7 +3,10 @@
 @section('title', 'Tambah Siswa')
 
 @section('contents')
-<h1 class="fw-bold fs-2 ms-3">Tambah Siswa</h1>
+<div class="text-center">
+    <h1 class="fw-bold fs-2 ms-3"><i class="fa fa-plus" style="color: green;"></i> Tambah Siswa</h1>
+</div>
+
 <hr />
 <div class="pb-4">
     <form action="{{ route('admin/students/store') }}" method="POST" enctype="multipart/form-data">
@@ -48,9 +51,9 @@
 
         <!-- Deskripsi -->
         <div class="mb-3">
-            <label for="description" class="form-label">Deskripsi</label>
+            <label for="description" class="form-label">Alasan ini mengikuti ekskul</label>
             <textarea name="description" id="description" rows="3" class="form-control"
-                placeholder="Masukkan deskripsi siswa"></textarea>
+                placeholder="Contoh : Ingin menjadi seorang businessman"></textarea>
         </div>
 
         <!-- Status -->
@@ -64,14 +67,14 @@
         </div>
 
         <!-- Reason -->
-        <div class="mb-3">
+        <div class="mb-3 d-none">
             <label for="reason" class="form-label">Alasan</label>
             <input type="text" name="reason" id="reason" class="form-control"
-                placeholder="Masukkan alasan siswa mengikuti ini">
+                placeholder="Masukkan alasan siswa mengikuti ini" value="N/A">
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary w-100">Submit</button>
+        <button type="submit" class="btn btn-primary w-100"><i class="fa fa-plus"></i> Tambahkan Data Baru</button>
     </form>
 </div>
 @endsection

@@ -4,15 +4,17 @@
 
 @section('contents')
 <div>
+
     <div class="d-flex justify-content-between">
-        <h1 class="fw-bold fs-2 ms-3">Daftar Siswa</h1>
-        <a href="{{ route('admin/students/create') }}" class="btn btn-primary float-end mb-2 me-2">Tambah Siswa</a>
+        <h1 class="fw-bold fs-2 ms-3"><i class="fa fa-users" style="color: green;"></i> Daftar Siswa</h1>
+        <a href="{{ route('admin/students/create') }}" class="btn btn-primary float-end mb-2 me-2"><i
+                class="fa fa-plus"></i> Tambah Siswa</a>
     </div>
 
     <hr />
     @if(Session::has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ Session::get('success') }}
+        <i class="fa-solid fa-check"></i> {{ Session::get('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
@@ -24,8 +26,9 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Kelas</th>
                 <th scope="col">Usia</th>
+                <th scope="col">Alasan ingin mengikuti ekskul</th>
                 <th scope="col">Status Pertimbangan</th>
-                <th scope="col">Deskripsi Alasan Pertimbangan</th>
+                <th scope="col">Deskripsi/Alasan Pertimbangan</th>
 
                 <th scope="col">Action</th>
             </tr>
@@ -38,6 +41,7 @@
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->class }}</td>
                 <td>{{ $student->age }}</td>
+                <td>{{ $student->description }}</td>
                 <td>
                     @if($student->status == 'accepted')
                     <span class="badge bg-success">
@@ -53,18 +57,38 @@
                     </span>
                     @endif
                 </td>
-                <td>{{ $student->description }}</td>
+                <td>{{ $student->reason}}</td>
+                <td>
 
-                <td class="w-25">
-                    <a href="{{ route('admin/students/show', $student->id) }}" class="text-primary">Detail</a>
-                    <a href="{{ route('admin/students/edit', $student->id) }}" class="text-success">Edit</a>
-                    <form action="{{ route('admin/students/destroy', $student->id) }}" method="POST"
-                        onsubmit="return confirm('Hapus siswa ini?')" class="d-inline">
+                    <a href="{{ route('admin/students/show', $student->id) }}" class="btn btn-primary btn-sm"
+                        title="Detail">
+                        <i class="fa fa-eye"></i>
+                    </a>
+
+
+                    <a href="{{ route('admin/students/edit', $student->id) }}" class="btn btn-success btn-sm"
+                        title="Edit">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                    <a href="{{ route('admin/students/destroy', $student->id) }}" class="btn btn-danger btn-sm"
+                        title="Hapus" onclick="event.preventDefault();
+            if(confirm('Hapus siswa ini?')) {
+                document.getElementById('delete-form-{{ $student->id }}').submit();
+            }">
+                        <i class="fa fa-trash"></i>
+                    </a>
+
+
+                    <form id="delete-form-{{ $student->id }}"
+                        action="{{ route('admin/students/destroy', $student->id) }}" method="POST"
+                        style="display: none;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-link text-danger p-0 m-0">Hapus</button>
                     </form>
+
                 </td>
+
             </tr>
             @endforeach
             @else
@@ -76,6 +100,8 @@
     </table>
 
 </div>
+
+
 
 
 @endsection

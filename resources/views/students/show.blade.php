@@ -53,5 +53,33 @@
             @endif
         </div>
     </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-semibold">Inputted ID</label>
+        <div class="form-control-plaintext">
+            {{ $students->inputted_id }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-semibold">Inputted Email</label>
+        <div class="form-control-plaintext">
+            {{ $students->inputted_email }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-semibold">Reason</label>
+        <div class="form-control-plaintext">
+            {{ $students->reason }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-semibold">Changed by Admin</label>
+        <div class="form-control-plaintext">
+            {{ $students->changed_by_admin }}
+        </div>
+    </div>
 </div>
 @endsection
