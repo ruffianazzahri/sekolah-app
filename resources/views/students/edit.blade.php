@@ -9,7 +9,7 @@
 
 <hr />
 <div class="pb-4">
-    <form action="{{ route('admin/students/update', $students->id) }}" method="POST">
+    <form id="edit-student-form" action="{{ route('admin/students/update', $students->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -30,6 +30,19 @@
                 <option value="X MIPS 1" {{ $students->class == 'X MIPS 1' ? 'selected' : '' }}>X MIPS 1</option>
                 <option value="X MIPS 2" {{ $students->class == 'X MIPS 2' ? 'selected' : '' }}>X MIPS 2</option>
                 <option value="X MIPS 3" {{ $students->class == 'X MIPS 3' ? 'selected' : '' }}>X MIPS 3</option>
+                <option value="XI MIPA 1" {{ $students->class == 'XI MIPA 1' ? 'selected' : '' }}>XI MIPA 1</option>
+                <option value="XI MIPA 2" {{ $students->class == 'XI MIPA 2' ? 'selected' : '' }}>XI MIPA 2</option>
+                <option value="XI MIPA 3" {{ $students->class == 'XI MIPA 3' ? 'selected' : '' }}>XI MIPA 3</option>
+                <option value="XI MIPS 1" {{ $students->class == 'XI MIPS 1' ? 'selected' : '' }}>XI MIPS 1</option>
+                <option value="XI MIPS 2" {{ $students->class == 'XI MIPS 2' ? 'selected' : '' }}>XI MIPS 2</option>
+                <option value="XI MIPS 3" {{ $students->class == 'XI MIPS 3' ? 'selected' : '' }}>XI MIPS 3</option>
+                <option value="XII MIPA 1" {{ $students->class == 'XII MIPA 1' ? 'selected' : '' }}>XII MIPA 1</option>
+                <option value="XII MIPA 2" {{ $students->class == 'XII MIPA 2' ? 'selected' : '' }}>XII MIPA 2</option>
+                <option value="XII MIPA 3" {{ $students->class == 'XII MIPA 3' ? 'selected' : '' }}>XII MIPA 3</option>
+                <option value="XII MIPS 1" {{ $students->class == 'XII MIPS 1' ? 'selected' : '' }}>XII MIPS 1</option>
+                <option value="XII MIPS 2" {{ $students->class == 'XII MIPS 2' ? 'selected' : '' }}>XII MIPS 2</option>
+                <option value="XII MIPS 3" {{ $students->class == 'XII MIPS 3' ? 'selected' : '' }}>XII MIPS 3</option>
+
             </select>
         </div>
 
@@ -40,7 +53,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="age" class="form-label">Alasan mengikuti ekskul</label>
+            <label for="description" class="form-label">Alasan mengikuti ekskul</label>
             <input id="description" name="description" type="text" value="{{ $students->description }}"
                 class="form-control" placeholder="Alasan" disabled readonly>
         </div>
@@ -65,7 +78,7 @@
         <div class="mb-3">
             <label for="reason" class="form-label">Deskripsi/Alasan pertimbangan</label>
             <textarea name="reason" id="reason" rows="3" class="form-control"
-                placeholder="Masukkan Deskripsi/Alasan pertimbangan (Sesuai hasil keputusan ketua ekskul)">{{ $students->reason }}</textarea>
+                placeholder="Masukkan Deskripsi/Alasan pertimbangan (Sesuai hasil keputusan ketua ekskul)"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary w-100"><i class="fa-solid fa-check"></i> Ubah Data</button>

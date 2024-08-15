@@ -103,20 +103,17 @@
 
 
 </body>
-
-</html>
-
-
-
-
-
-<script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<s src="{{ asset('fontawesome/js/fontawesome.js') }}"></s cript>
-<script src="{{ asset('fontawesome/js/solid.js') }}"></script>
 <script src="{{ asset('jquery/jquery.js') }}"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
+<script src="{{ asset('fontawesome/js/solid.js') }}"></script>
+
 <script>
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>

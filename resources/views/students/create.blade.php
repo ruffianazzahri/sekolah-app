@@ -9,16 +9,16 @@
 
 <hr />
 <div class="pb-4">
-    <form action="{{ route('admin/students/store') }}" method="POST" enctype="multipart/form-data">
+    <form id="student-form" action="{{ route('admin/students/store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <!-- Nama -->
+
         <div class="mb-3">
             <label for="name" class="form-label">Nama</label>
             <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama siswa">
         </div>
 
-        <!-- Kelas -->
+
         <div class="mb-3">
             <label for="class" class="form-label">Kelas</label>
             <select id="class" name="class" class="form-select">
@@ -43,20 +43,19 @@
             </select>
         </div>
 
-        <!-- Usia -->
+
         <div class="mb-3">
             <label for="age" class="form-label">Usia</label>
             <input id="age" name="age" type="number" class="form-control" placeholder="Masukkan usia siswa">
         </div>
 
-        <!-- Deskripsi -->
+
         <div class="mb-3">
             <label for="description" class="form-label">Alasan ini mengikuti ekskul</label>
             <textarea name="description" id="description" rows="3" class="form-control"
                 placeholder="Contoh : Ingin menjadi seorang businessman"></textarea>
         </div>
 
-        <!-- Status -->
         <div class="mb-3 d-none">
             <label for="status" class="form-label">Status</label>
             <select name="status" id="status" class="form-select">
@@ -66,15 +65,48 @@
             </select>
         </div>
 
-        <!-- Reason -->
         <div class="mb-3 d-none">
             <label for="reason" class="form-label">Alasan</label>
             <input type="text" name="reason" id="reason" class="form-control"
                 placeholder="Masukkan alasan siswa mengikuti ini" value="N/A">
-        </div>
 
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary w-100"><i class="fa fa-plus"></i> Tambahkan Data Baru</button>
+            <button type="submit" class="btn btn-primary w-100"><i class="fa fa-plus"></i> Tambahkan Data Baru</button>
     </form>
+
+    <script>
+    document.getElementById('student-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var name = document.getElementById('name').value.trim();
+        var classValue = document.getElementById('class').value;
+        var age = document.getElementById('age').value.trim();
+        var description = document.getElementById('description').value.trim();
+
+        if (!name || !classValue || !age || !description) {
+            Swal.fire({
+                title: 'Peringatan',
+                text: 'Pastikan semua data telah diisi dengan benar!',
+                icon: 'warning',
+                confirmButtonText: 'Oke',
+            });
+        } else {
+
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin data yang Anda masukkan sudah benar?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Kirim',
+                cancelButtonText: 'Tidak, Batalkan',
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    event.target.submit();
+                }
+            });
+        }
+    });
+    </script>
+
 </div>
 @endsection

@@ -4,7 +4,7 @@
 
 @section('contents')
 <div class="text-center  mt-3">
-    <h1><i class="fa fa-user" style="color: green"></i> User Management</h1>
+    <h3 class="fw-bold"><i class="fa fa-user" style="color: green"></i> User Management</h3>
 </div>
 <hr />
 <!-- Tampilkan pesan sukses jika ada -->

@@ -96,4 +96,5 @@
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
-<script src="{{ asset('jquery/jquery.js') }}"></script>
+<script src="{{ asset('jquery/jquery.js') }}"></script>\
+<script src="{{ asset('jspdf/dist/jspdf.umd.min.js') }}"></script>

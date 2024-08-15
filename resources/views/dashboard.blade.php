@@ -4,8 +4,9 @@
 register')
 
 @section('contents')
-<div>
-    <h1 class="font-bold text-2xl ml-3">Dashboard</h1>
+<div class="text-center">
+    <h1 class="fw-bold">Dashboard</h1>
+    <h3>Welcome, {{ session('userName', Auth::user()->name) }}!</h3>
 </div>
 
 @endsection

@@ -6,9 +6,14 @@
 <div>
 
     <div class="d-flex justify-content-between">
-        <h1 class="fw-bold fs-2 ms-3"><i class="fa fa-users" style="color: green;"></i> Daftar Siswa</h1>
-        <a href="{{ route('admin/students/create') }}" class="btn btn-primary float-end mb-2 me-2"><i
-                class="fa fa-plus"></i> Tambah Siswa</a>
+        <h3 class="fw-bold"><i class="fa fa-users" style="color: green;"></i> Daftar Siswa</h3>
+        <div>
+            <button class="btn btn-success mb-2 me-2" id="cmd"><i class="fa fa-download"></i> Generate PDF</button>
+            <a href="{{ route('admin/students/create') }}" class="btn btn-primary mb-2 me-2"><i class="fa fa-plus"></i>
+                Tambah Siswa</a>
+        </div>
+
+
     </div>
 
     <hr />
@@ -20,7 +25,7 @@
     @endif
 
     <table class="table table-striped">
-        <thead class="table-dark">
+        <thead class="table-dark" id="content1">
             <tr>
                 <th scope="col">Nomor</th>
                 <th scope="col">Nama</th>
@@ -33,7 +38,7 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="content2">
             @if($students->count() > 0)
             @foreach($students as $student)
             <tr>
@@ -101,7 +106,35 @@
 
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+<script>
+var doc = new jsPDF({
+    orientation: 'l',
 
+});
 
+doc.setFont("helvetica");
+doc.setFontType("bold");
+doc.setFontSize(1);
+var specialElementHandlers = {
+    '#editor': function(element, renderer) {
+        return true;
+    }
+};
+
+$('#cmd').click(function() {
+    doc.fromHTML($('#content1').html(), 15, 30, {
+        'width': 700,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.fromHTML($('#content2').html(), 15, 50, {
+        'width': 700,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.save('daftar-siswa.pdf');
+});
+</script>
 
 @endsection
