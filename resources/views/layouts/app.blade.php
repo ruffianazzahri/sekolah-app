@@ -46,7 +46,7 @@
                 <li><a href="{{ url('/admin/home') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                         id="user-menu-item-0"><i class="fa fa-home"></i> Home</a></li>
                 <li>
-                <li><a href="{{ url('/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
+                <li><a href="{{ url('/admin/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                         id="user-menu-item-0"><i class="fa fa-user"></i> Profile Management</a></li>
                 <li>
                     <hr class="dropdown-divider">

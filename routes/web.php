@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,7 +49,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     });
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
-    // Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
+    Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
 
     // Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
     // Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
