@@ -37,7 +37,7 @@ class AuthController extends Controller
             'type' => "0"
         ]);
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'The account has been registered! Please login to access the page');
     }
 
     public function login(){

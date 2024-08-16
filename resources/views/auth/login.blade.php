@@ -16,6 +16,7 @@
 
 <body>
     <div class="container">
+
         <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <div class="card" style="width: 50%">
                 <div class="card-body">
@@ -25,6 +26,25 @@
                             Login Page
                         </h1>
                     </div>
+
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>ERROR!</strong>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li><span class="block sm:inline">{{ $error }}</span></li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
 
                     <form action="{{ route('login.action') }}" method="POST" class="mt-5">
                         @csrf
