@@ -14,7 +14,7 @@ class AdminController extends Controller
         return view('profile');
     }
 
-    public function update(Request $request)
+    public function updateProfile(Request $request)
     {
         $user = Auth::user();
 

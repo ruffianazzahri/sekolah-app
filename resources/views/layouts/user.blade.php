@@ -53,8 +53,8 @@
 
 
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="{{ url('/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                                    id="user-menu-item-0">Your Profile</a></li>
+                            <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-0">Your Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -87,14 +87,30 @@
         <div>@yield('contents')</div>
     </div>
 </body>
-
-</html>
-
-
-
-
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
-<script src="{{ asset('jquery/jquery.js') }}"></script>\
+<script src="{{ asset('jquery/jquery.js') }}"></script>
 <script src="{{ asset('jspdf/dist/jspdf.umd.min.js') }}"></script>
+<script>
+function edit() {
+    console.log('test');
+    document.getElementById("editButton").style.display = "none";
+    document.getElementById("saveCancelButtons").style.display = "flex";
+    document.getElementById("name").disabled = false;
+    document.getElementById("email").disabled = false;
+    document.getElementById("password").disabled = false;
+}
+
+function cancelEditButton() {
+    document.getElementById("editButton").style.display = "block";
+    document.getElementById("saveCancelButtons").style.display = "none";
+    document.getElementById("name").disabled = true;
+    document.getElementById("email").disabled = true;
+    document.getElementById("password").disabled = true;
+}
+</script>
+
+
+
+</html>

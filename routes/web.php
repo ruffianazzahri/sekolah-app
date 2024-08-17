@@ -40,6 +40,9 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+
+    Route::get('/studentprofile', [HomeController::class, 'studentprofilepage'])->name('/studentprofile');
+    Route::put('/updatestudentprofile', [HomeController::class, 'updatestudentprofile'])->name('/updatestudentprofile');
 });
 
 //Admin Routes List
@@ -52,7 +55,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
-    Route::put('/admin/update', [AdminController::class, 'update'])->name('admin/update');
+    Route::put('/admin/updateProfile', [AdminController::class, 'updateProfile'])->name('admin/updateProfile');
+
 
     Route::get('/admin/students', [StudentController::class, 'index'])->name('admin/students');
     Route::get('/admin/students/create', [StudentController::class, 'create'])->name('admin/students/create');

@@ -7,7 +7,8 @@ use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
-    //
+
+
     public function index(){
         $students = Student::orderBy('created_at', 'DESC')->get();
 

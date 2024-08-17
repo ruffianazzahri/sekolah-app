@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('title', 'Pengaturan Profil')
 
@@ -16,8 +16,7 @@
 <h3 class="lead">Change Information</h3>
 
 <!-- Form Update Profile -->
-
-<form method="POST" enctype="multipart/form-data" action="{{ route('admin/updateProfile') }}">
+<form method="POST" enctype="multipart/form-data" action="{{ route('/updatestudentprofile') }}">
     @csrf
     @method('PUT')
     <!-- Gunakan PUT untuk update -->

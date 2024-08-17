@@ -114,6 +114,23 @@ $("#menu-toggle").click(function(e) {
     $("#wrapper").toggleClass("toggled");
 });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function edit() {
+    console.log('test');
+    document.getElementById("editButton").style.display = "none";
+    document.getElementById("saveCancelButtons").style.display = "flex";
+    document.getElementById("name").disabled = false;
+    document.getElementById("email").disabled = false;
+    document.getElementById("password").disabled = false;
+}
+
+function cancelEditButton() {
+    document.getElementById("editButton").style.display = "block";
+    document.getElementById("saveCancelButtons").style.display = "none";
+    document.getElementById("name").disabled = true;
+    document.getElementById("email").disabled = true;
+    document.getElementById("password").disabled = true;
+}
+</script>
 
 </html>
