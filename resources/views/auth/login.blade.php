@@ -13,6 +13,29 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/solid.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
 </head>
+<style>
+body {
+
+    background-image: url('assets/building.jpg');
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 767px) {
+    body {
+
+        background-image: url('assets/building.jpg');
+    }
+}
+</style>
 
 <body>
     <div class="container">
@@ -57,7 +80,7 @@
                             @enderror
                         </div>
                         <div class="mt-3">
-                            <label for="password">Password</label>
+                            <label for="password">Kata sandi</label>
                             <input type="password" name="password" id="password" placeholder="••••••••"
                                 class="form-control" required>
                             @error('password')
@@ -66,18 +89,21 @@
                         </div>
                         <div class="mt-3">
                             <input name="remember" id="remember" aria-describedby="remember" type="checkbox">
-                            <label for="remember">Remember me</label>
+                            <label for="remember">Ingat saya</label>
                         </div>
 
                         <div class="text-center mt-3">
                             <button type="submit" class="btn btn-block btn-success"><i
                                     class="fa-solid fa-right-to-bracket"></i> Login</button>
                             <p>
-                                Don't have an account? <a href="{{ route('register') }}">Register a new account here</a>
+                                Belum punya akun? <a href="{{ route('register') }}">Daftarkan akun baru disini</a>
                             </p>
-                            <p>
-                                Back to <a href="{{ route('home') }}">Homepage</a>
-                            </p>
+                            © <script>
+                            document.write(new Date().getFullYear())
+                            </script> Developed with proud by Muhammad Ruffian Azzahri
+                            <!-- <p>
+                                Kembali ke <a href="{{ route('home') }}">Beranda</a>
+                            </p> -->
                         </div>
 
                     </form>
@@ -95,5 +121,5 @@
 
 
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
+<s src="{{ asset('fontawesome/js/fontawesome.js') }}"></s cript>
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>

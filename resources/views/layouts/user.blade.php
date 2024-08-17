@@ -40,12 +40,12 @@
 
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                                id="user-menu-item-0">Your Profile</a></li>
+                                id="user-menu-item-0"><i class="fa-solid fa-user"></i> Profil Anda</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1"
-                                id="user-menu-item-2">Sign out</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1" id="user-menu-item-2"><i
+                                    class="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
                     </ul>
                 </li>
                 <div class="mx-auto"></div>
@@ -54,9 +54,11 @@
                     @if (Route::has('login'))
                     @auth
                     <!-- Profile dropdown -->
-                    <a class="nav-link " href="{{route('home')}}">Beranda</a>
-                    <a class="nav-link " href="{{route('aboutus')}}">Tentang Kami</a>
-                    <a class="nav-link " href="{{route('students')}}">Calon Peserta</a>
+                    <a class="nav-link " href="{{route('home')}}"><i class="fa-solid fa-house"></i> Beranda</a>
+                    <a class="nav-link " href="{{route('aboutus')}}"><i class="fa-solid fa-circle-info"></i> Tentang
+                        Kami</a>
+                    <a class="nav-link " href="{{route('students')}}"><i class="fa-solid fa-users"></i> Calon
+                        Peserta</a>
                     <a class="nav-link" href="{{ route('createstudent') }}" style="color: blue;"><i
                             class="fa fa-plus"></i>
                         Daftar
@@ -66,12 +68,13 @@
 
 
                     @else
-                    <a class="nav-link " href="{{route('home')}}">Home</a>
-                    <a class="nav-link " href="{{route('aboutus')}}">About Us</a>
+                    <a class="nav-link " href="{{route('home')}}"><i class="fa-solid fa-house"></i> Beranda</a>
+                    <a class="nav-link " href="{{route('aboutus')}}"><i class="fa-solid fa-circle-info"></i> Tentang
+                        Kami</a>
                     <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('login')}}">Login</a>
 
                     @if (Route::has('register'))
-                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('register')}}">Register</a>
+                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('register')}}">Daftar Akun</a>
 
                     @endif
                     @endauth
@@ -87,6 +90,31 @@
     <div class="container">
         <div>@yield('contents')</div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-white text-lg-start bg-primary mt-5">
+        <div class="container d-flex justify-content-center py-4">
+            <p>SIGMA Academy - Menjadi entepreneur yang mendunia, membumi, dan mengluar-angkasa</p>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.1);">
+            © <script>
+            document.write(new Date().getFullYear())
+            </script>
+            <a>Muhammad Ruffian Azzahri</a>
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    </section>
+
+    </div>
+
+    </footer>
+
 </body>
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
@@ -112,6 +140,9 @@ function cancelEditButton() {
     document.getElementById("password").disabled = true;
 }
 </script>
+
+
+
 
 
 

@@ -3,7 +3,7 @@
 @section('title', 'Detail Siswa')
 
 @section('contents')
-<h1 class="fw-bold fs-2 ms-3">Detail Siswa - {{ $students->name }}</h1>
+<h1 class="fw-bold fs-2 ms-3">Detail Peserta - {{ $students->name }}</h1>
 
 <hr />
 <div class="pb-4">

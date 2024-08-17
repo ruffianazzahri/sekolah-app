@@ -35,40 +35,36 @@
 
                     <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
                         src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg" alt="Profile Picture">
-                    <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
+                    <span>{{ session('userName', Auth::user()->name) }}</span>
 
                 </li>
 
-
-
-
-
                 <li><a href="{{ url('/admin/home') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                        id="user-menu-item-0"><i class="fa fa-home"></i> Home</a></li>
+                        id="user-menu-item-0"><i class="fa fa-house"></i> Beranda</a></li>
                 <li>
                 <li><a href="{{ url('/admin/students') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                        id="user-menu-item-0"><i class="fa-solid fa-list"></i> Student Candidates</a></li>
+                        id="user-menu-item-0"><i class="fa-solid fa-list"></i> Calon Peserta</a></li>
                 <li>
                 <li><a href="{{ url('/admin/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                        id="user-menu-item-0"><i class="fa fa-user"></i> Profile Management</a></li>
+                        id="user-menu-item-0"><i class="fa fa-user"></i> Manajemen Akun</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1" id="user-menu-item-2">
-                        <i class="fa fa-sign-out"></i> Sign out</a></li>
+                        <i class="fa fa-sign-out"></i> Keluar</a></li>
 
                 </li>
 
 
                 @else
                 <li>
-                    <a class="nav-link " href="{{route('home')}}">Home</a>
+                    <a class="nav-link " href="{{route('home')}}"><i class="fa-solid fa-house"></i> Beranda</a>
                 </li>
                 <li>
-                    <a class="nav-link " href="{{route('aboutus')}}">About Us</a>
+                    <a class="nav-link " href="{{route('aboutus')}}">Tentang Kami</a>
                 </li>
                 <li>
-                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('login')}}">Login</a>
+                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('login')}}">Masuk</a>
                 </li>
 
 

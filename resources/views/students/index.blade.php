@@ -6,9 +6,9 @@
 <div>
 
     <div class="d-flex justify-content-between">
-        <h3 class="fw-bold"><i class="fa fa-users" style="color: green;"></i> Daftar Siswa</h3>
+        <h3 class="fw-bold"><i class="fa fa-users" style="color: green;"></i> Daftar Peserta</h3>
         <div>
-            <button class="btn btn-success mb-2 me-2" id="cmd"><i class="fa fa-download"></i> Generate PDF</button>
+            <button class="btn btn-success mb-2 me-2" id="cmd"><i class="fa fa-download"></i> Cetak PDF</button>
             <a href="{{ route('admin/students/create') }}" class="btn btn-primary mb-2 me-2"><i class="fa fa-plus"></i>
                 Tambah Siswa</a>
         </div>
@@ -41,7 +41,7 @@
                 <th scope="col">Status Pertimbangan</th>
                 <th scope="col">Deskripsi/Alasan Pertimbangan</th>
 
-                <th scope="col">Action</th>
+                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody id="content2">
@@ -84,7 +84,7 @@
 
                     <a href="{{ route('admin/students/destroy', $student->id) }}" class="btn btn-danger btn-sm"
                         title="Hapus" onclick="event.preventDefault();
-            if(confirm('Hapus siswa ini?')) {
+            if(confirm('Hapus peserta ini?')) {
                 document.getElementById('delete-form-{{ $student->id }}').submit();
             }">
                         <i class="fa fa-trash"></i>
