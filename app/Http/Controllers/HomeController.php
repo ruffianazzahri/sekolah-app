@@ -54,7 +54,7 @@ class HomeController extends Controller
 
 
     public function students(){
-        $students = Student::orderBy('created_at', 'DESC')->get();
+        $students = Student::orderBy('created_at', 'ASC')->get();
 
         return view("students", compact('students'));
     }

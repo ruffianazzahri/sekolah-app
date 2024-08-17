@@ -10,7 +10,7 @@ class StudentController extends Controller
 
 
     public function index(){
-        $students = Student::orderBy('created_at', 'DESC')->get();
+        $students = Student::orderBy('created_at', 'ASC')->get();
 
         return view("students.index", compact('students'));
     }
@@ -79,7 +79,7 @@ class StudentController extends Controller
 
         $students->save();
 
-        return redirect()->route('admin/students')->with('success', 'Student updated successfully');
+        return redirect()->route('admin/students')->with('success', 'Siswa berhasil diubah');
     }
 
 
@@ -89,6 +89,6 @@ class StudentController extends Controller
 
         $students->delete();
 
-        return redirect()->route('admin/students')->with('success', 'Student deleted successfully');
+        return redirect()->route('admin/students')->with('warning', 'Siswa berhasil dihapus!');
     }
 }

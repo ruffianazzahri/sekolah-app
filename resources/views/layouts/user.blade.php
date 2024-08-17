@@ -28,6 +28,26 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <li class="nav-item dropdown" style=" list-style-type: none;">
+
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
+                            src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg" alt="Profile Picture">
+
+                        <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
+                                id="user-menu-item-0">Your Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1"
+                                id="user-menu-item-2">Sign out</a></li>
+                    </ul>
+                </li>
                 <div class="mx-auto"></div>
                 <div class="navbar-nav">
 
@@ -36,29 +56,13 @@
                     <!-- Profile dropdown -->
                     <a class="nav-link " href="{{route('home')}}">Beranda</a>
                     <a class="nav-link " href="{{route('aboutus')}}">Tentang Kami</a>
-                    <a class="nav-link " href="{{route('students')}}">Daftar Calon Peserta</a>
+                    <a class="nav-link " href="{{route('students')}}">Calon Peserta</a>
+                    <a class="nav-link" href="{{ route('createstudent') }}" style="color: blue;"><i
+                            class="fa fa-plus"></i>
+                        Daftar
+                        Ekskul!</a>
 
-                    <li class="nav-item dropdown">
 
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
-                                src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg"
-                                alt="Profile Picture">
-
-                            <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem"
-                                    tabindex="-1" id="user-menu-item-0">Your Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1"
-                                    id="user-menu-item-2">Sign out</a></li>
-                        </ul>
-                    </li>
 
 
                     @else
@@ -108,6 +112,7 @@ function cancelEditButton() {
     document.getElementById("password").disabled = true;
 }
 </script>
+
 
 
 
