@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
+use App\Models\Activity;
 class HomeController extends Controller
 {
     //
@@ -112,6 +113,12 @@ class HomeController extends Controller
         $students = Student::findOrFail($id);
 
         return view('students.show', compact('students'));
+    }
+
+    public function activity(){
+        $activity = Activity::orderBy('created_at', 'ASC')->get();
+
+        return view("activity", compact('activity'));
     }
 
 }

@@ -57,6 +57,8 @@
                     <a class="nav-link " href="{{route('home')}}"><i class="fa-solid fa-house"></i> Beranda</a>
                     <a class="nav-link " href="{{route('aboutus')}}"><i class="fa-solid fa-circle-info"></i> Tentang
                         Kami</a>
+                    <a class="nav-link " href="{{route('activity')}}"><i class="fa-solid fa-list"></i>
+                        Aktivitas</a>
                     <a class="nav-link " href="{{route('students')}}"><i class="fa-solid fa-users"></i> Calon
                         Peserta</a>
                     <a class="nav-link" href="{{ route('createstudent') }}" style="color: blue;"><i

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ActivityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +50,8 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::post('/storestudent', [HomeController::class, 'storestudent'])->name('storestudent');
     Route::get('/show/{id}', [HomeController::class, 'show'])->name('show');
 
+    Route::get('/activity', [HomeController::class, 'activity'])->name('activity');
+
 });
 
 //Admin Routes List
@@ -71,6 +74,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
      Route::get('/admin/students/edit/{id}', [StudentController::class, 'edit'])->name('admin/students/edit');
      Route::put('/admin/students/edit/{id}', [StudentController::class, 'update'])->name('admin/students/update');
      Route::delete('/admin/students/destroy/{id}', [StudentController::class, 'destroy'])->name('admin/students/destroy');
+
+     Route::get('/admin/activity', [ActivityController::class, 'index'])->name('admin/activity');
+     Route::get('/admin/activity/create', [ActivityController::class, 'create'])->name('admin/activity/create');
+      Route::post('/admin/activity/store', [ActivityController::class, 'store'])->name('admin/activity/store');
+      Route::get('/admin/activity/show/{id}', [ActivityController::class, 'show'])->name('admin/activity/show');
+      Route::get('/admin/activity/edit/{id}', [ActivityController::class, 'edit'])->name('admin/activity/edit');
+      Route::put('/admin/activity/edit/{id}', [ActivityController::class, 'update'])->name('admin/activity/update');
+      Route::delete('/admin/activity/destroy/{id}', [ActivityController::class, 'destroy'])->name('admin/activity/destroy');
 
 
 });

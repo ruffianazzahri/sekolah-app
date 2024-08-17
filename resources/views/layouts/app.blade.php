@@ -43,7 +43,10 @@
                         id="user-menu-item-0"><i class="fa fa-house"></i> Beranda</a></li>
                 <li>
                 <li><a href="{{ url('/admin/students') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                        id="user-menu-item-0"><i class="fa-solid fa-list"></i> Calon Peserta</a></li>
+                        id="user-menu-item-0"><i class="fa-solid fa-users"></i> Calon Peserta</a></li>
+                <li>
+                <li><a href="{{ url('/admin/activity') }}" class="dropdown-item" role="menuitem" tabindex="-1"
+                        id="user-menu-item-0"><i class="fa-solid fa-list"></i> Daftar kegiatan ekskul</a></li>
                 <li>
                 <li><a href="{{ url('/admin/profile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                         id="user-menu-item-0"><i class="fa fa-user"></i> Manajemen Akun</a></li>
