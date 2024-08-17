@@ -43,6 +43,12 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
     Route::get('/studentprofile', [HomeController::class, 'studentprofilepage'])->name('/studentprofile');
     Route::put('/updatestudentprofile', [HomeController::class, 'updatestudentprofile'])->name('/updatestudentprofile');
+
+    Route::get('/students', [HomeController::class, 'students'])->name('students');
+    Route::get('/createstudent', [HomeController::class, 'createstudent'])->name('createstudent');
+    Route::post('/storestudent', [HomeController::class, 'storestudent'])->name('storestudent');
+    Route::get('/show/{id}', [HomeController::class, 'show'])->name('show');
+
 });
 
 //Admin Routes List

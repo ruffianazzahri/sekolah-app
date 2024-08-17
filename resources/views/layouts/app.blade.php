@@ -107,6 +107,7 @@
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
 $("#menu-toggle").click(function(e) {

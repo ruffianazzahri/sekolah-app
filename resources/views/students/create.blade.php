@@ -51,7 +51,7 @@
 
 
         <div class="mb-3">
-            <label for="description" class="form-label">Alasan ini mengikuti ekskul</label>
+            <label for="description" class="form-label">Alasan ingin mengikuti ekskul</label>
             <textarea name="description" id="description" rows="3" class="form-control"
                 placeholder="Contoh : Ingin menjadi seorang businessman"></textarea>
         </div>
@@ -69,8 +69,8 @@
             <label for="reason" class="form-label">Alasan</label>
             <input type="text" name="reason" id="reason" class="form-control"
                 placeholder="Masukkan alasan siswa mengikuti ini" value="N/A">
-
-            <button type="submit" class="btn btn-primary w-100"><i class="fa fa-plus"></i> Tambahkan Data Baru</button>
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><i class="fa fa-plus"></i> Tambahkan Data Baru</button>
     </form>
 
     <script>

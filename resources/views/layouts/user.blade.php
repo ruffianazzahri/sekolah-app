@@ -34,8 +34,9 @@
                     @if (Route::has('login'))
                     @auth
                     <!-- Profile dropdown -->
-                    <a class="nav-link " href="{{route('home')}}">Home</a>
-                    <a class="nav-link " href="{{route('aboutus')}}">About Us</a>
+                    <a class="nav-link " href="{{route('home')}}">Beranda</a>
+                    <a class="nav-link " href="{{route('aboutus')}}">Tentang Kami</a>
+                    <a class="nav-link " href="{{route('students')}}">Daftar Calon Peserta</a>
 
                     <li class="nav-item dropdown">
 
@@ -47,10 +48,6 @@
 
                             <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
                         </a>
-
-
-
-
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem"
@@ -92,6 +89,7 @@
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
 <script src="{{ asset('jquery/jquery.js') }}"></script>
 <script src="{{ asset('jspdf/dist/jspdf.umd.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function edit() {
     console.log('test');

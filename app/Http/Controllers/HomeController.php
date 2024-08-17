@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Student;
 class HomeController extends Controller
 {
     //
@@ -51,4 +51,70 @@ class HomeController extends Controller
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
+
+
+    public function students(){
+        $students = Student::orderBy('created_at', 'DESC')->get();
+
+        return view("students", compact('students'));
+    }
+    public function createstudent()
+    {
+        $userId = auth()->id(); // Ambil ID pengguna yang saat ini login
+
+        // Periksa apakah pengguna sudah memiliki data siswa berdasarkan inputted_id
+        $existingStudent = Student::where('inputted_id', $userId)->first();
+
+        if ($existingStudent) {
+            // Set pesan session jika data sudah ada
+            session()->flash('warning', 'Anda telah mengisi form ini sebelumnya. Mohon cek berkala status anda di halaman daftar calon peserta!');
+
+            // Kirim data existing student untuk ditampilkan di form jika diperlukan
+            $existingStudentData = $existingStudent;
+        } else {
+            $existingStudentData = null;
+        }
+
+        return view('createstudent', compact('existingStudentData'));
+    }
+
+
+
+    public function storestudent(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'class' => 'required|string|max:255',
+            'age' => 'required|integer',
+            'description' => 'nullable|string',
+            'status' => 'required|string|in:pending,accepted,rejected',
+            'reason' => 'nullable|string',
+        ]);
+
+        // Ambil ID dan email pengguna yang saat ini login
+        $userId = Auth::id();
+        $userEmail = Auth::user()->email;
+
+        $student = new Student();
+        $student->name = $validatedData['name'];
+        $student->class = $validatedData['class'];
+        $student->age = $validatedData['age'];
+        $student->description = $validatedData['description'];
+        $student->status = $validatedData['status'];
+        $student->reason = $validatedData['reason'];
+        $student->inputted_id = $userId; // Set ID pengguna yang saat ini login
+        $student->inputted_email = $userEmail; // Set email pengguna yang saat ini login
+        $student->changed_by_admin = Auth::user()->name; // Set nama admin yang mengubah data
+        $student->save();
+
+        return redirect()->route('students')->with('success', 'Selamat! Anda berhasil mendaftar! Mohon cek web berkala untuk melihat status pertimbangan apakah anda diterima/ditolak');
+    }
+
+    public function show(string $id)
+    {
+        $students = Student::findOrFail($id);
+
+        return view('students.show', compact('students'));
+    }
+
 }
