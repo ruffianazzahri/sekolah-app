@@ -6,7 +6,7 @@
 <div>
 
     <div class="d-flex justify-content-between">
-        <h3 class="fw-bold"><i class="fa fa-users" style="color: green;"></i> Daftar Aktivitas</h3>
+        <h3 class="fw-bold"><i class="fa fa-list" style="color: green;"></i> Daftar Aktivitas</h3>
         <div>
             <button class="btn btn-success mb-2 me-2" id="cmd"><i class="fa fa-download"></i> Cetak PDF</button>
             <a href="{{ route('admin/activity/create') }}" class="btn btn-primary mb-2 me-2"><i class="fa fa-plus"></i>

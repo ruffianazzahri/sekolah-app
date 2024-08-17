@@ -3,10 +3,10 @@
 @section('title', 'Daftar Aktivitas')
 
 @section('contents')
-<div>
+<div class="mt-5">
 
     <div class="d-flex justify-content-between">
-        <h3 class="fw-bold"><i class="fa fa-users" style="color: green;"></i> Daftar Aktivitas</h3>
+        <h3 class="fw-bold"><i class="fa fa-list" style="color: green;"></i> Daftar Aktivitas</h3>
         <div>
             <button class="btn btn-success mb-2 me-2" id="cmd"><i class="fa fa-download"></i> Cetak PDF</button>
         </div>

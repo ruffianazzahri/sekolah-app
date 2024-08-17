@@ -13,7 +13,7 @@ class AddActivity extends Migration
      */
     public function up()
     {
-        // Ubah dari Schema::table menjadi Schema::create untuk membuat tabel baru
+
         Schema::create('activity', function (Blueprint $table) {
             $table->id();
             $table->string('day');
@@ -31,7 +31,7 @@ class AddActivity extends Migration
      */
     public function down()
     {
-        // Menghapus tabel 'activity' jika rollback
+
         Schema::dropIfExists('activity');
     }
 }

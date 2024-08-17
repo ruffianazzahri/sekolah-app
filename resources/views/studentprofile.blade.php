@@ -35,7 +35,7 @@
     <div class="mb-3">
         <label for="password" class="form-label">Kata sandi</label>
         <input name="password" type="password" class="form-control" id="password"
-            placeholder="Leave blank if not changing" disabled>
+            placeholder="Biarkan kosong jika tidak mau mengubah" disabled>
     </div>
     <h6 style="color:red">*<span style="color: black;"> Wajib diisi</span></h6>
 

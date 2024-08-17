@@ -35,7 +35,8 @@
                         <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
                             src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg" alt="Profile Picture">
 
-                        <span>Welcome, {{ session('userName', Auth::user()->name) }}!</span>
+                        <span style="font-weight:bold;">Selamat datang,
+                            {{ session('userName', Auth::user()->name) }}!</span>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-right">
@@ -94,8 +95,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-white text-lg-start bg-primary" style="margin-top: 200px">
-        <div class="container d-flex justify-content-center py-4">
+    <footer class="text-center text-white text-lg-start bg-primary" style="margin-top: 200px;">
+        <div class=" container d-flex justify-content-center py-4">
             <p>SIGMA Academy - Menjadi entepreneur yang mendunia, membumi, dan mengluar-angkasa</p>
         </div>
 

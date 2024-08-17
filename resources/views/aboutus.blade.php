@@ -15,7 +15,7 @@
 <hr>
 <p>SIGMA Academy adalah ekstrakulikuler wirausaha yang didirikan pada tahun 2024 oleh salah satu alumni SMA Negeri 100
     yaitu Supriadi Putra, S.Sn. Beliau merupakan alumni SMA Negeri 100 tahun 1986 jurusan MIPA. Alasan beliau
-    berinisiatif mendirikan perusahaan ini
+    berinisiatif mendirikan ekstrakulikuler ini
     adalah menggerakkan mental pengusaha
     karena menurut beliau, selain sekolah bertujuan untuk mencerdaskan anak bangsa dan meningkatkan kepribadian siswa
     menjadi lebih baik dalam lingkungannya, wirausaha harus ditanamkan agar memajukan negeri terutama dalam sektor
