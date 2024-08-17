@@ -99,7 +99,7 @@ body {
                                     class="fa-solid fa-right-to-bracket"></i>
                                 Buat Akun</button>
                             <p>
-                                Sudah punya akun <a href=" {{ route('login') }}">Login disini</a>
+                                Sudah punya akun? <a href=" {{ route('login') }}">Login disini</a>
                             </p>
                             © <script>
                             document.write(new Date().getFullYear())

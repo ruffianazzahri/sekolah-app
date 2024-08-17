@@ -38,11 +38,11 @@ class HomeController extends Controller
             'password' => 'nullable|confirmed|min:6',
         ]);
 
-        // Update user information
+
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
 
-        // Check if password is present and update it
+
         if ($request->filled('password')) {
             $user->password = Hash::make($validatedData['password']);
         }
@@ -60,16 +60,13 @@ class HomeController extends Controller
     }
     public function createstudent()
     {
-        $userId = auth()->id(); // Ambil ID pengguna yang saat ini login
+        $userId = auth()->id();
 
-        // Periksa apakah pengguna sudah memiliki data siswa berdasarkan inputted_id
         $existingStudent = Student::where('inputted_id', $userId)->first();
 
         if ($existingStudent) {
-            // Set pesan session jika data sudah ada
-            session()->flash('warning', 'Anda telah mengisi form ini sebelumnya. Mohon cek berkala status anda di halaman daftar calon peserta!');
 
-            // Kirim data existing student untuk ditampilkan di form jika diperlukan
+            session()->flash('warning', 'Anda telah mengisi form ini sebelumnya. Mohon cek berkala status anda di halaman daftar calon peserta!');
             $existingStudentData = $existingStudent;
         } else {
             $existingStudentData = null;
@@ -91,7 +88,7 @@ class HomeController extends Controller
             'reason' => 'nullable|string',
         ]);
 
-        // Ambil ID dan email pengguna yang saat ini login
+
         $userId = Auth::id();
         $userEmail = Auth::user()->email;
 
@@ -102,9 +99,9 @@ class HomeController extends Controller
         $student->description = $validatedData['description'];
         $student->status = $validatedData['status'];
         $student->reason = $validatedData['reason'];
-        $student->inputted_id = $userId; // Set ID pengguna yang saat ini login
-        $student->inputted_email = $userEmail; // Set email pengguna yang saat ini login
-        $student->changed_by_admin = Auth::user()->name; // Set nama admin yang mengubah data
+        $student->inputted_id = $userId;
+        $student->inputted_email = $userEmail;
+        $student->changed_by_admin = Auth::user()->name;
         $student->save();
 
         return redirect()->route('students')->with('success', 'Selamat! Anda berhasil mendaftar! Mohon cek web berkala untuk melihat status pertimbangan apakah anda diterima/ditolak');

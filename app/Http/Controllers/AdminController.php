@@ -24,11 +24,10 @@ class AdminController extends Controller
             'password' => 'nullable|confirmed|min:6',
         ]);
 
-        // Update user information
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
 
-        // Check if password is present and update it
+
         if ($request->filled('password')) {
             $user->password = Hash::make($validatedData['password']);
         }

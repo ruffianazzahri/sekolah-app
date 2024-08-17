@@ -5,11 +5,8 @@
 @section('contents')
 <div>
 
-    <div class="d-flex justify-content-between mt-3">
+    <div class="text-center mt-3">
         <h3 class="fw-bold"><i class="fa fa-users" style="color: green;"></i> Daftar Siswa</h3>
-
-
-
     </div>
 
     <hr />

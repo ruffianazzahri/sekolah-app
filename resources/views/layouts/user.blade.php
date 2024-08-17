@@ -92,7 +92,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-white text-lg-start bg-primary mt-5">
+    <footer class="text-center text-white text-lg-start bg-primary" style="margin-top: 200px">
         <div class="container d-flex justify-content-center py-4">
             <p>SIGMA Academy - Menjadi entepreneur yang mendunia, membumi, dan mengluar-angkasa</p>
         </div>

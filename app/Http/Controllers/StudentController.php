@@ -31,7 +31,7 @@ class StudentController extends Controller
             'reason' => 'nullable|string',
         ]);
 
-        // Ambil ID dan email pengguna yang saat ini login
+
         $userId = Auth::id();
         $userEmail = Auth::user()->email;
 
@@ -42,9 +42,9 @@ class StudentController extends Controller
         $student->description = $validatedData['description'];
         $student->status = $validatedData['status'];
         $student->reason = $validatedData['reason'];
-        $student->inputted_id = $userId; // Set ID pengguna yang saat ini login
-        $student->inputted_email = $userEmail; // Set email pengguna yang saat ini login
-        $student->changed_by_admin = Auth::user()->name; // Set nama admin yang mengubah data
+        $student->inputted_id = $userId;
+        $student->inputted_email = $userEmail;
+        $student->changed_by_admin = Auth::user()->name;
         $student->save();
 
         return redirect()->route('admin/students')->with('success', 'Siswa berhasil ditambahkan');
