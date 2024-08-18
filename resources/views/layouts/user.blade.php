@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/solid.css') }}">
+    <link rel="stylesheet" href="{{ asset('datatables/datatables.css') }}">
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
 </head>
@@ -124,6 +125,7 @@
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
 <script src="{{ asset('jquery/jquery.js') }}"></script>
 <script src="{{ asset('jspdf/dist/jspdf.umd.min.js') }}"></script>
+<script src="{{ asset('datatables/datatables.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function edit() {
@@ -144,6 +146,12 @@ function cancelEditButton() {
 }
 </script>
 
+
+<script>
+$(document).ready(function() {
+    $('#students-table').DataTable();
+});
+</script>
 
 
 

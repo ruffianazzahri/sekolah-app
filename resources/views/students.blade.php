@@ -18,18 +18,16 @@
     </div>
     @endif
 
-
     <div class="alert alert-primary" role="alert">
-        <h3><i class="fa-solid fa-circle-info"></i> Perhatian</h3>
+        <h3><i class="fa-solid fa-circle-info"></i> PERHATIAN</h3>
         <p>Silahkan lihat nama anda disini</p>
         <p>Jika anda <span class="badge bg-success"><i class="fas fa-check-circle"></i> Diterima</span>, mohon
-            konfirmasi ke Admin melalui WhatsApp <a target="_blank" href="https://wa.link/u45czf"
-                class="btn btn-info"><i class="fa-solid fa-phone"></i> Berikut </a></p>
-
+            konfirmasi ke Admin melalui <a target="_blank" href="https://wa.link/u45czf" class="btn btn-success"><i
+                    class="fa-solid fa-phone"></i> Whatsapp </a></p>
     </div>
 
-    <table class="table table-striped">
-        <thead class="table-dark" id="content1">
+    <table id="students-table" class="table table-striped">
+        <thead class="table-dark">
             <tr>
                 <th scope="col">Nomor</th>
                 <th scope="col">Nama</th>
@@ -38,11 +36,9 @@
                 <th scope="col">Alasan ingin mengikuti ekskul</th>
                 <th scope="col">Status Pertimbangan</th>
                 <th scope="col">Deskripsi/Alasan Pertimbangan</th>
-
-
             </tr>
         </thead>
-        <tbody id="content2">
+        <tbody>
             @if($students->count() > 0)
             @foreach($students as $student)
             <tr>
@@ -66,9 +62,7 @@
                     </span>
                     @endif
                 </td>
-                <td>{{ $student->reason}}</td>
-
-
+                <td>{{ $student->reason }}</td>
             </tr>
             @endforeach
             @else
@@ -80,7 +74,6 @@
     </table>
 
 </div>
-
 
 
 @endsection

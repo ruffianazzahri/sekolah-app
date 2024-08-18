@@ -28,7 +28,7 @@
     </div>
     @endif
 
-    <table class="table table-striped">
+    <table id="activity-table" class="table table-striped">
         <thead class="table-dark" id="content1">
             <tr>
                 <th scope="col">Nomor</th>

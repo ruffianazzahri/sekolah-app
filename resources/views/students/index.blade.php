@@ -30,10 +30,10 @@
     </div>
     @endif
 
-    <table class="table table-striped">
+    <table id="students-table" class="table table-striped">
         <thead class="table-dark" id="content1">
             <tr>
-                <th scope="col">Nomor</th>
+                <th scope="col" style="width: 5%;">Nomor</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Kelas</th>
                 <th scope="col">Usia</th>
@@ -41,7 +41,7 @@
                 <th scope="col">Status Pertimbangan</th>
                 <th scope="col">Deskripsi/Alasan Pertimbangan</th>
 
-                <th scope="col">Aksi</th>
+                <th scope="col" style="width: 25%;">Aksi</th>
             </tr>
         </thead>
         <tbody id="content2">

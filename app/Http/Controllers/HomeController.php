@@ -66,8 +66,19 @@ class HomeController extends Controller
         $existingStudent = Student::where('inputted_id', $userId)->first();
 
         if ($existingStudent) {
+            switch ($existingStudent->status) {
+                case 'accepted':
+                    session()->flash('success', 'Selamat, Anda diterima! Silakan hubungi admin untuk informasi lebih lanjut.');
+                    break;
 
-            session()->flash('warning', 'Anda telah mengisi form ini sebelumnya. Mohon cek berkala status anda di halaman daftar calon peserta!');
+                case 'pending':
+                    session()->flash('warning', 'Anda telah mengisi form ini sebelumnya. Mohon cek berkala status anda di halaman daftar calon peserta!');
+                    break;
+
+                case 'rejected':
+                    session()->flash('danger', 'Maaf, Anda ditolak. Silakan daftar pada periode berikutnya. Pantau informasi di majalah dinding sekolah untuk melihat pendaftaran periode berikutnya.');
+                    break;
+            }
             $existingStudentData = $existingStudent;
         } else {
             $existingStudentData = null;
@@ -75,6 +86,7 @@ class HomeController extends Controller
 
         return view('createstudent', compact('existingStudentData'));
     }
+
 
 
 

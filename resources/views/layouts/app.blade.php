@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/solid.css') }}">
+    <link rel="stylesheet" href="{{ asset('datatables/datatables.css') }}">
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
 </head>
@@ -106,6 +107,7 @@
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('fontawesome/js/fontawesome.js') }}"></script>
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
+<script src="{{ asset('datatables/datatables.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
@@ -131,6 +133,16 @@ function cancelEditButton() {
     document.getElementById("email").disabled = true;
     document.getElementById("password").disabled = true;
 }
+</script>
+<script>
+$(document).ready(function() {
+    $('#activity-table').DataTable();
+});
+</script>
+<script>
+$(document).ready(function() {
+    $('#students-table').DataTable();
+});
 </script>
 
 </html>
