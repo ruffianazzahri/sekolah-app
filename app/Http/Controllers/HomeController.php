@@ -15,6 +15,11 @@ class HomeController extends Controller
         return view("home");
     }
 
+    public function __construct()
+{
+    $this->middleware('auth')->except('index');
+}
+
     public function aboutus(){
         return view("aboutus");
     }
@@ -50,7 +55,7 @@ class HomeController extends Controller
     /** @var \App\Models\User $user **/
         $user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('success', 'Profile anda berhasil diubah!');
     }
 
 
@@ -68,7 +73,7 @@ class HomeController extends Controller
         if ($existingStudent) {
             switch ($existingStudent->status) {
                 case 'accepted':
-                    session()->flash('success', 'Selamat, Anda diterima! Silakan hubungi admin untuk informasi lebih lanjut.');
+                    session()->flash('primary', 'Selamat, Anda diterima untuk bergabung di ekskul SIGMA Academy! Silakan hubungi admin untuk informasi lebih lanjut.');
                     break;
 
                 case 'pending':
@@ -76,7 +81,7 @@ class HomeController extends Controller
                     break;
 
                 case 'rejected':
-                    session()->flash('danger', 'Maaf, Anda ditolak. Silakan daftar pada periode berikutnya. Pantau informasi di majalah dinding sekolah untuk melihat pendaftaran periode berikutnya.');
+                    session()->flash('danger', 'Maaf, Anda ditolak untuk bergabung di ekskul SIGMA Academy. Silakan daftar pada periode berikutnya. Pantau informasi di majalah dinding sekolah untuk melihat pendaftaran periode berikutnya.');
                     break;
             }
             $existingStudentData = $existingStudent;

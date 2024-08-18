@@ -9,9 +9,9 @@
 
 <hr />
 
-@if (session('success'))
-<div class="alert alert-success" role="alert">
-    {{ session('success') }}
+@if (session('primary'))
+<div class="alert alert-primary" role="alert">
+    {{ session('primary') }}
 </div>
 @endif
 

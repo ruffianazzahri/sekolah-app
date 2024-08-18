@@ -29,27 +29,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <li class="nav-item dropdown" style=" list-style-type: none;">
 
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
-                            src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg" alt="Profile Picture">
-
-                        <span style="font-weight:bold;">Selamat datang,
-                            {{ session('userName', Auth::user()->name) }}!</span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem" tabindex="-1"
-                                id="user-menu-item-0"><i class="fa-solid fa-user"></i> Profil Anda</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1" id="user-menu-item-2"><i
-                                    class="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
-                    </ul>
-                </li>
                 <div class="mx-auto"></div>
                 <div class="navbar-nav">
 
@@ -63,22 +43,46 @@
                         Aktivitas</a>
                     <a class="nav-link " href="{{route('students')}}"><i class="fa-solid fa-users"></i> Calon
                         Peserta</a>
-                    <a class="nav-link" href="{{ route('createstudent') }}" style="color: blue;"><i
-                            class="fa fa-plus"></i>
-                        Daftar
-                        Ekskul!</a>
+
+                    <li class="nav-item dropdown" style=" list-style-type: none;">
+
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="rounded-circle me-2" style="width: 32px; height: 32px;"
+                                src="https://ruffianazzahri.github.io/portfolio/img/profile-pics.jpg"
+                                alt="Profile Picture">
+
+                            <span style="font-weight:bold;">Selamat datang,
+                                {{ session('userName', Auth::user()->name) }}!</span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="{{ route('createstudent') }}" style="color: blue;"><i
+                                        class="fa fa-plus"></i>
+                                    Daftar
+                                    Ekskul!</a></li>
+                            <li><a href="{{ url('/studentprofile') }}" class="dropdown-item" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-0"><i class="fa-solid fa-user"></i> Profil Anda</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ url('/logout') }}" tabindex="-1"
+                                    id="user-menu-item-2"><i class="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
+                        </ul>
+                    </li>
 
 
 
 
                     @else
                     <a class="nav-link " href="{{route('home')}}"><i class="fa-solid fa-house"></i> Beranda</a>
-                    <a class="nav-link " href="{{route('aboutus')}}"><i class="fa-solid fa-circle-info"></i> Tentang
-                        Kami</a>
-                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('login')}}">Login</a>
+                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('login')}}"><i
+                            class="fa-solid fa-right-to-bracket"></i> Login</a>
 
                     @if (Route::has('register'))
-                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('register')}}">Daftar Akun</a>
+                    <a class="btn btn-primary" style="margin-left: 5px;" href="{{route('register')}}"><i
+                            class="fa-solid fa-right-to-bracket"></i> Daftar Akun</a>
 
                     @endif
                     @endauth
@@ -152,6 +156,8 @@ $(document).ready(function() {
     $('#students-table').DataTable();
 });
 </script>
+
+
 
 
 

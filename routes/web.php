@@ -21,6 +21,11 @@ use App\Http\Controllers\ActivityController;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+
+
 Route::controller(AuthController::class)->group(function () {
 
     Route::get('register', 'register')->name('register');
@@ -34,13 +39,6 @@ Route::controller(AuthController::class)->group(function () {
 
 //Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('/home', function () {
-        $userName = Auth::user()->name;
-        return redirect()->route('home')->with('userName', $userName);
-    });
-
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 
     Route::get('/studentprofile', [HomeController::class, 'studentprofilepage'])->name('/studentprofile');
     Route::put('/updatestudentprofile', [HomeController::class, 'updatestudentprofile'])->name('/updatestudentprofile');
