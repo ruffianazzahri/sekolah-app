@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
 use App\Models\Activity;
+
 class HomeController extends Controller
 {
     //
@@ -35,30 +36,28 @@ class HomeController extends Controller
     }
 
     public function updatestudentprofile(Request $request)
-    {
-        $user = Auth::user();
+{
+    $user = Auth::user();
 
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|confirmed|min:6',
-        ]);
+    // Validasi data input
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+        'password' => 'nullable|min:6|confirmed',
+    ]);
 
+    $user->name = $validatedData['name'];
+    $user->email = $validatedData['email'];
 
-        $user->name = $validatedData['name'];
-        $user->email = $validatedData['email'];
-
-
-        if ($request->filled('password')) {
-            $user->password = Hash::make($validatedData['password']);
-        }
-    /** @var \App\Models\User $user **/
-        $user->save();
-
-        return redirect()->back()->with('success', 'Profile anda berhasil diubah!');
+    if ($request->filled('password')) {
+        $user->password = Hash::make($validatedData['password']);
     }
 
+  /** @var \App\Models\User $user **/
+    $user->save();
 
+    return redirect()->back()->with('success', 'Profil anda berhasil diubah!');
+}
     public function students(){
         $students = Student::orderBy('created_at', 'ASC')->get();
 

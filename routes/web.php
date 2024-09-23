@@ -63,6 +63,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
     Route::put('/admin/updateProfile', [AdminController::class, 'updateProfile'])->name('admin/updateProfile');
+    Route::put('/admin/updatestudentprofile', [HomeController::class, 'updatestudentprofile'])->name('updatestudentprofile');
 
 
     Route::get('/admin/students', [StudentController::class, 'index'])->name('admin/students');

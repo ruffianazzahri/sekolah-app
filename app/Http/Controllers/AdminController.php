@@ -34,6 +34,6 @@ class AdminController extends Controller
     /** @var \App\Models\User $user **/
         $user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('success', 'Profile anda berhasil diubah!');
     }
 }
