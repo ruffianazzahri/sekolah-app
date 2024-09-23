@@ -50,6 +50,22 @@ class StudentController extends Controller
         return redirect()->route('admin/students')->with('success', 'Siswa berhasil ditambahkan');
     }
 
+    public function getStatusCounts()
+    {
+        // Hitung jumlah data berdasarkan status
+        $accepted = Student::where('status', 'accepted')->count();
+        $rejected = Student::where('status', 'rejected')->count();
+        $pending = Student::where('status', 'pending')->count();
+
+        // Kirim data dalam format JSON
+        return response()->json([
+            'accepted' => $accepted,
+            'rejected' => $rejected,
+            'pending' => $pending,
+        ]);
+    }
+
+
     public function show(string $id)
     {
         $students = Student::findOrFail($id);

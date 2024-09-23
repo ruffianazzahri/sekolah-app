@@ -109,6 +109,9 @@
 <script src="{{ asset('fontawesome/js/solid.js') }}"></script>
 <script src="{{ asset('datatables/datatables.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
 
 <script>
 $("#menu-toggle").click(function(e) {
@@ -143,6 +146,70 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#students-table').DataTable();
 });
+</script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '{{ route("student.status.counts") }}',
+            method: 'GET',
+            success: function(data) {
+
+                var accepted = data.accepted;
+                var rejected = data.rejected;
+                var pending = data.pending;
+
+
+                var ctx = document.getElementById('statusChart').getContext('2d');
+                var statusChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Diterima', 'Ditolak', 'Pending'],
+                        datasets: [{
+                            label: '# of Students',
+                            data: [accepted, rejected, pending],
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(255, 206, 86, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 206, 86, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                enabled: true
+                            },
+                            datalabels: {
+                                color: '#000',
+                                font: {
+                                    weight: 'bold',
+                                    size: 14
+                                },
+                                formatter: (value, context) => {
+                                    let label = context.chart.data.labels[context.dataIndex];
+                                    return label + ': ' + value;
+                                }
+                            }
+                        }
+                    },
+                    plugins: [ChartDataLabels]
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("Error loading data: " + error);
+            }
+        });
+    });
 </script>
 
 </html>
